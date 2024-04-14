@@ -1,0 +1,288 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  --mainColor-magenta: hsl(293, 100%, 63%);
+  --secondaryColor-violet: hsl(264, 100%, 61%);
+  --white: hsl(0, 0%, 100%);
+  --bgColor: hsl(270, 20%, 96%);
+  --bgDarkColor: hsl(271, 36%, 24%);
+  --veryLightMagenta: hsl(289, 100%, 72%);
+}
+body {
+  font-family: "Rubik", sans-serif;
+}
+main {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--white);
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 767px) {
+  main {
+    height: auto;
+  }
+  main::before {
+    width: 50%;
+    height: 50%;
+  }
+}
+main::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 25%;
+  height: 90%;
+  border-radius: 0 0 200px 200px;
+  background-image: linear-gradient(
+    200deg,
+    var(--mainColor-magenta),
+    var(--secondaryColor-violet)
+  );
+  z-index: -1;
+}
+@media (max-width: 767px) {
+  main::before {
+    width: 50%;
+    height: 50%;
+  }
+}
+main::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  rotate: 180deg;
+  opacity: 0.05;
+  width: 20%;
+  height: 90%;
+  border-radius: 0 0 300px 0px;
+  background-image: linear-gradient(
+    200deg,
+    var(--mainColor-magenta),
+    var(--secondaryColor-violet)
+  );
+  z-index: -1;
+}
+@media (max-width: 767px) {
+  main::after {
+    display: none;
+  }
+}
+main .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+}
+@media (max-width: 767px) {
+  main .container {
+    flex-direction: column;
+    gap: 0px;
+  }
+}
+main .container .app {
+  min-width: 350px;
+  max-width: 350px;
+  background-color: var(--white);
+  border-radius: 20px;
+  border: 15px solid white;
+  overflow: hidden;
+  z-index: 2;
+  box-shadow: 0px 0px 20px rgba(146, 146, 146, 0.303);
+  font-size: 13px !important;
+  position: relative;
+}
+main .container .app::before {
+  content: "";
+}
+@media (max-width: 767px) {
+  main .container .app {
+    transform: scale(0.8);
+    box-shadow: 0px 0px 20px rgba(146, 146, 146, 0.157);
+  }
+  main .container .app:before {
+    position: absolute;
+    left: 0;
+    top: -9px;
+    width: 100%;
+    background-color: white;
+    height: 10px;
+    z-index: 100;
+  }
+}
+main .container .app .contact-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 20px 20px;
+  color: var(--white);
+  background-image: linear-gradient(
+    90deg,
+    var(--secondaryColor-violet),
+    var(--mainColor-magenta)
+  );
+  position: relative;
+  border-radius: 20px 20px 0 0;
+}
+main .container .app .contact-info::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 30px;
+  width: 60%;
+  background-color: var(--white);
+  border-radius: 0 0 20px 20px;
+}
+main .container .app .contact-info .left-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .container .app .contact-info img {
+  width: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--white);
+  margin: 0 10px;
+}
+main .container .app .contact-info .info h3 {
+  margin: 0 0 5px;
+}
+main .container .app .contact-info .info span {
+  font-size: 11px;
+  color: var(--bgColor);
+}
+main .container .chat {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0 0 20px 20px;
+  background-color: var(--bgColor);
+}
+main .container .chat p {
+  width: fit-content;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgb(224, 221, 221);
+  max-width: 75%;
+  margin: 10px 0;
+}
+main .container .chat p:first-child {
+  margin-top: 0;
+}
+main .container .chat p.re {
+  background-color: rgb(235 230 240);
+  color: var(--secondaryColor-violet);
+}
+main .container .chat p.se {
+  background-color: var(--white);
+  align-self: flex-end;
+}
+main .container .chat .pics {
+  align-self: flex-end;
+}
+main .container .chat .pics img {
+  width: 65px;
+  border-radius: 10px;
+}
+main .container .chat .price {
+  padding: 15px;
+  background-image: linear-gradient(
+    90deg,
+    var(--mainColor-magenta),
+    var(--secondaryColor-violet)
+  );
+  margin: 10px 0;
+  width: fit-content;
+  min-width: 75%;
+  border-radius: 20px 10px 10px 5px;
+  color: white;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+main .container .chat .price .input {
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid white;
+}
+main .container .chat .price span:first-of-type {
+  font-size: 12px;
+  margin-left: 10px;
+}
+main .container .chat .price span:last-of-type {
+  position: absolute;
+  right: 20px;
+  font-weight: 800;
+  font-size: 15px;
+}
+main .container .chat .price input {
+  opacity: 0;
+  position: absolute;
+}
+main .container .chat .price input:focus + .input,
+main .container .chat .price .input:focus {
+  background-color: var(--secondaryColor-violet);
+  border: none;
+}
+main .container .chat .price-2 {
+  margin-bottom: 20px;
+}
+main .container .chat .send-message {
+  position: relative;
+}
+main .container .chat .send-message input {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+main .container .chat .send-message input::placeholder {
+  opacity: 0.5;
+  font-size: 12px;
+}
+main .container .chat .send-message input:focus::placeholder {
+  opacity: 0;
+}
+main .container .chat .send-message a {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 5px;
+  padding: 5px;
+  border-radius: 50%;
+  color: var(--white);
+  background-color: var(--bgDarkColor);
+}
+main .container .app-info {
+  width: 30%;
+}
+@media (max-width: 767px) {
+  main .container .app-info {
+    width: 80%;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: -50px;
+  }
+}
+main .container .app-info h2 {
+  font-size: 40px;
+  font-weight: 500;
+  color: var(--bgDarkColor);
+}
+main .container .app-info p {
+  line-height: 1.6;
+  color: var(--bgDarkColor);
+  opacity: 0.7;
+}
